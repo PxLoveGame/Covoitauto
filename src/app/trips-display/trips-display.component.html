@@ -1,0 +1,20 @@
+<p>
+  Covoiturages disponibles :
+</p>
+
+<table>
+  <tr>
+    <td>
+      <ul>
+        <li *ngFor="let trip of (trips)"> 
+            {{trip.startCity}} à {{trip.endCity}}
+            <label *ngIf="trip.place == 0" class="warning"> (not available)</label>
+            {{myDate}}
+        </li>
+        
+      </ul>
+    </td>
+  </tr>
+</table>
+{{var1}}
+
