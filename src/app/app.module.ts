@@ -7,6 +7,12 @@ import { TripsDisplayComponent } from './trips-display/trips-display.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthentificationService, UserService } from './services/index';
+import { HttpClientModule } from '@angular/common/http';
+
+const appRoutes: Routes = [
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+];
 
 @NgModule({
   declarations: [
@@ -18,6 +24,10 @@ import { AuthentificationService, UserService } from './services/index';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
+  ],
+  exports: [
     RouterModule
   ],
   providers: [AuthentificationService, UserService],

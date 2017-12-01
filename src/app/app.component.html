@@ -7,9 +7,14 @@
   <li>
     <h1><a href="" >Créer un trajet</a></h1>
   </li>
+  <li>
+    <button [routerLink]="['/login']">Connexion</button>
+    <button [routerLink]="['/register']">S'inscrire</button>
+  </li> 
 </ul>
- <h1>Bienvenue sur Coivoitauto!</h1>
- 
+ <h1>Bienvenue sur Covoitauto!</h1>
+
+  <router-outlet></router-outlet> 
 </div>
 
 <app-trips-display></app-trips-display>
