@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { TripsDisplayComponent } from './trips-display/trips-display.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AuthentificationService } from './services/index';
+import { AuthentificationService, UserService } from './services/index';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { AuthentificationService } from './services/index';
     BrowserModule,
     FormsModule
   ],
-  providers: [AuthentificationService],
+  providers: [AuthentificationService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
