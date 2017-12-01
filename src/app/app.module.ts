@@ -27,7 +27,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  exports: [
+  exports: [ //penser a exports les modules dans les features modules, (ceux qui seront utiliser par le module parent)
     RouterModule
   ],
   providers: [AuthentificationService, UserService],
