@@ -7,8 +7,8 @@
     <td>
       <ul>
         <li *ngFor="let trip of (trips);  let i = index"> 
-            <label *ngIf="dateCmp2[i] > today.getTime()"> {{trip.startCity}} à {{trip.endCity}} </label>
-            <label *ngIf="trip.place == 0" class="warning"> (not available)</label>
+            <label *ngIf="dateCmp2[i] > today.getTime()"> {{trip.startCity}} à {{trip.endCity}} 
+            <label *ngIf="trip.place == 0" class="warning"> (not available)</label></label>
             {{myDate}}
         </li>
         
@@ -16,11 +16,3 @@
     </td>
   </tr>
 </table>
-{{dateCmp2[0]}}<br>
-{{dateCmp2[1]}}<br>
-{{dateCmp2[2]}}<br>
-{{dateCmp2[3]}}<br>
-{{dateCmp2}}<br>
-date : {{dateCmp}} <br>
-{{today.getTime()}}
-
