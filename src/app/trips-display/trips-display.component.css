@@ -23,3 +23,7 @@ label.warning {
 	font-weight: bold; 
 	color: red;
 }
+
+li {
+	list-style-type: none;
+}

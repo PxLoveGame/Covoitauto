@@ -12,26 +12,33 @@ export class TripsDisplayComponent implements OnInit {
   myDate : string;
   newDate : string;
   dateCmp : string;
+  dateCmp2 : any[] = [];
+  dateF : any;
 
   trips: Object[] = [
-    { "startCity":"Montpellier", "endCity":"Avignon", "date":"25/12/17", "place": "0"},
-    { "startCity":"Montpellier", "endCity":"Paris", "date":"01/01/18", "place": "2"},
-    { "startCity":"Nice", "endCity":"Lyon", "date":"20/12/17", "place": "2"}
+    {"startCity":"Montpellier", "endCity":"Avignon", "date":"12/25/17", "place":"0"}
+    {"startCity":"Montpellier", "endCity":"Paris", "date":"01/01/18", "place":"2"}
+    {"startCity":"Nice", "endCity":"Lyon", "date":"12/20/17", "place":"2"}
+    {"startCity":"Nice", "endCity":"Lyon", "date":"10/20/17", "place":"1"}
   ];
 
-  // today = new Date(); TENTATIVE DE COMPARAISON DE LA DATE DU TRAJET AVEC LA DATE ACTUELLE
+  
+  
 
-  // this.var1 = String(this.trips[2].date);
-  // myDate = var1;
-  // myDate = myDate.split("/");
-  // newDate = myDate[1]+"/"+myDate[0]+"/"+myDate[2];
-  // dateCmp = new Date(newDate).getTime();
+
 
 
   constructor() { }
 
   ngOnInit() {
-  
+    this.today = new Date();
+    this.dateCmp = new Date(String(this.trips[0].date)).getTime();
+    for(var i = 0; i< this.trips.length; i++){
+      this.dateF = new Date(this.trips[i].date.format('MM/DD/YYYY'));
+      this.dateCmp2.push(new Date(this.dateF).getTime());
+
+      console.log(this.trips[i].date);
+    }
   }
 
 }

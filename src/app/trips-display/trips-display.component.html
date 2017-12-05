@@ -6,8 +6,8 @@
   <tr>
     <td>
       <ul>
-        <li *ngFor="let trip of (trips)"> 
-            {{trip.startCity}} à {{trip.endCity}}
+        <li *ngFor="let trip of (trips);  let i = index"> 
+            <label *ngIf="dateCmp2[i] > today.getTime()"> {{trip.startCity}} à {{trip.endCity}} </label>
             <label *ngIf="trip.place == 0" class="warning"> (not available)</label>
             {{myDate}}
         </li>
@@ -16,5 +16,11 @@
     </td>
   </tr>
 </table>
-{{var1}}
+{{dateCmp2[0]}}<br>
+{{dateCmp2[1]}}<br>
+{{dateCmp2[2]}}<br>
+{{dateCmp2[3]}}<br>
+{{dateCmp2}}<br>
+date : {{dateCmp}} <br>
+{{today.getTime()}}
 
