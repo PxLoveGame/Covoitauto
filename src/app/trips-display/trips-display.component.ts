@@ -29,8 +29,6 @@ export class TripsDisplayComponent implements OnInit {
     for(var i = 0; i< this.trips.length; i++){
       this.dateF = new Date(this.trips[i]['date']);
       this.dateCmp2.push(new Date(this.dateF).getTime());
-
-      console.log(this.trips[i]['date']);
     }
   }
 
