@@ -22,12 +22,6 @@ export class TripsDisplayComponent implements OnInit {
     {"startCity":"Nice", "endCity":"Lyon", "date":"10/20/17", "place":"1"}
   ];
 
-  
-  
-
-
-
-
   constructor() { }
 
   ngOnInit() {
