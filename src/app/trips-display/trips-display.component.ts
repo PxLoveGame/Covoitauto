@@ -30,7 +30,11 @@ export class TripsDisplayComponent implements OnInit {
       this.dateF = new Date(this.trips[i]['date']);
       this.dateCmp2.push(new Date(this.dateF).getTime());
 
+<<<<<<< HEAD
       //console.log(this.trips[i].date);
+=======
+      console.log(this.trips[i]['date']);
+>>>>>>> refs/remotes/origin/master
     }
   }
 
