@@ -1,5 +1,7 @@
 <form>
-  	<input type="text" name="villeD" placeholder="Départ">
-	<input type="text" name="villeA" placeholder="Destination">
-	<input type="date" name="date" placeholder="Date">
+  	<input [(ngModel)]="villeD" type="text" name="villeD" placeholder="Départ">
+	<input [(ngModel)]="villeA" type="text" name="villeA" placeholder="Destination">
+	<input [(ngModel)]="dateT" type="date" name="date" placeholder="Date">
+	<input type="submit" value="Rechercher" (onclick)="searchTrips()">
+
 </form>
