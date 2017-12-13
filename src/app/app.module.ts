@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthentificationService, UserService } from './services/index';
 import { HttpClientModule } from '@angular/common/http';
 import { TripsSearchComponent } from './trips-search/trips-search.component';
+import { TripsCreateComponent } from './trips-create/trips-create.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     TripsSearchComponent,
+    TripsCreateComponent,
   ],
   imports: [
     BrowserModule,
