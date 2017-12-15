@@ -1,0 +1,98 @@
+import { filter } from '../../../../../.cache/typescript/2.6/node_modules/@types/async';
+
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+const express = require('express');
+let cors = require('cors');
+const app = express();
+
+app.use(cors());
+
+// Connection URL
+const url = 'mongodb://localhost:27017';
+// Database Name
+const dbName = 'Covoitauto';
+// Use connect method to connect to the server
+MongoClient.connect(url, function(err, client) {
+assert.equal(null, err);
+//Database creation
+const db = client.db(dbName);
+// Collection creation
+const trips = db.collection("trips");
+const users = db.collection("users");
+
+
+// ====== Trips request ======
+
+// create trips
+function postTrip(trips, params, res){
+    trips.insert(params["newInsert"], function(err, docs){
+        if(err)
+            res(err, []);
+        else if(docs !== undefined)
+            res(params["route"], docs);
+        else
+            res(params["route"], []);
+    })
+}
+
+app.post('/trips-create', function(req, res){
+
+postTrip
+res.send("OK !");
+})
+
+// All trips
+function getAllTrips(trips, params, res){
+    trips.find().toArray(function(err, docs){
+        if(err)
+            res(err, []);
+        else if(docs !== undefined)
+            res(params["route"], docs);
+        else
+            res(params["route"], []);
+    })
+}
+
+app.get('/trips', function(req, res){
+    getAllTrips(trips,{"route": "/trips"}, function(step, results){
+        console.log("recupération en base de tous les covoiturages")
+        res.setHeader("Content-type","application/json, charset = UTF-8");
+        let json = JSON.stringify(results);
+        console.log(json);
+        res.end(json);
+    })
+});
+
+//trips research
+
+function tripsResearch(trips, params, res){
+    trips.find(params["filterObject"]).toArray(function(err, docs){
+        if(docs !== undefined)
+            res(params["route"], docs);
+        else
+            res(params["route"], []);
+    })
+}
+
+app.get('/trips/:townD/:townA/:HourD/:DateD', function(req, res){
+    let filterObject = {};
+    if(req.params.townD != '*') {filterObject.townD = req.params.townD;}
+    if(req.params.townA != '*') {filterObject.townA = req.params.townA;}
+    if(req.params.HourD != '*') {filterObject.HourD = req.params.HourD;}
+    if(req.params.DateD != '*') {filterObject.DateD = req.params.DateD;}
+    tripsResearch(trips, {"route" : "/trips", "filterObject" : filterObject}, function(step, results){
+        console.log("récupération en base des covoiturages selon les critères saisis");
+        res.setHeader("Content-type","application/json, charset = UTF-8");
+        let json = JSON.stringify(results);
+        console.log(json);
+        res.end(json);
+    })
+})
+
+// ====== Users Request ======
+
+
+app.listen(8080, () => console.log('Example app listening on port 8080!'))
+
+});
