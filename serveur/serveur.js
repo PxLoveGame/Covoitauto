@@ -23,14 +23,14 @@ const users = db.collection("users");
 // ====== Trips request ======
 
 // create trips
-function postTrip(trips, params, res){
+function postTrip(params, callback){
     trips.insert(params["newInsert"], function(err, docs){
         if(err)
-            res(err, []);
+            callback(err, []);
         else if(docs !== undefined)
-            res(params["route"], docs);
+            callback(params["route"], docs);
         else
-            res(params["route"], []);
+            callback(params["route"], []);
     })
 }
 
@@ -64,17 +64,17 @@ app.get('/trips', function(req, res){
 
 //trips research
 
-function tripsResearch(trips, params, res){
+function tripsResearch(params, callback){
     trips.find(params["filterObject"]).toArray(function(err, docs){
         if(docs !== undefined)
-            res(params["route"], docs);
+            callback(params["route"], docs);
         else
-            res(params["route"], []);
+            callback(params["route"], []);
     })
 }
 
 app.get('/trips/:townD/:townA/:HourD/:DateD', function(req, res){
-    let filterObject = {};
+    let filterObject = {"townD" : null, "townA" : null, "HourD" : null, "DateD" : null};
     if(req.params.townD != '*') {filterObject.townD = req.params.townD;}
     if(req.params.townA != '*') {filterObject.townA = req.params.townA;}
     if(req.params.HourD != '*') {filterObject.HourD = req.params.HourD;}
