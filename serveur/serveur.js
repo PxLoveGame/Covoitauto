@@ -1,5 +1,3 @@
-import { filter } from '../../../../../.cache/typescript/2.6/node_modules/@types/async';
-
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 const express = require('express');
@@ -43,19 +41,19 @@ res.send("OK !");
 })
 
 // All trips
-function getAllTrips(trips, params, res){
+function getAllTrips(params, callback){
     trips.find().toArray(function(err, docs){
         if(err)
-            res(err, []);
+            callback(err, []);
         else if(docs !== undefined)
-            res(params["route"], docs);
+            callback(params["route"], docs);
         else
-            res(params["route"], []);
+            callback(params["route"], []);
     })
 }
 
 app.get('/trips', function(req, res){
-    getAllTrips(trips,{"route": "/trips"}, function(step, results){
+    getAllTrips({"route": "/trips"}, function(results){
         console.log("recupération en base de tous les covoiturages")
         res.setHeader("Content-type","application/json, charset = UTF-8");
         let json = JSON.stringify(results);
@@ -81,7 +79,7 @@ app.get('/trips/:townD/:townA/:HourD/:DateD', function(req, res){
     if(req.params.townA != '*') {filterObject.townA = req.params.townA;}
     if(req.params.HourD != '*') {filterObject.HourD = req.params.HourD;}
     if(req.params.DateD != '*') {filterObject.DateD = req.params.DateD;}
-    tripsResearch(trips, {"route" : "/trips", "filterObject" : filterObject}, function(step, results){
+    tripsResearch(trips, {"route" : "/trips", "filterObject" : filterObject}, function(results){
         console.log("récupération en base des covoiturages selon les critères saisis");
         res.setHeader("Content-type","application/json, charset = UTF-8");
         let json = JSON.stringify(results);
