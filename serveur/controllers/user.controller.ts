@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express();
-var userService = require('services/user.service');
+const express = require('express');
+const userService = require('services/user.service');
+let router = express();
  
 // routes
 router.post('/login', login);
