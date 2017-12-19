@@ -14,6 +14,7 @@ import { TripsCreateComponent } from './trips-create/trips-create.component';
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'create', component: TripsCreateComponent},
 ];
 
 @NgModule({

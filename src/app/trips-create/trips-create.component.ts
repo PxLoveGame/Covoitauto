@@ -11,7 +11,7 @@ export class TripsCreateComponent implements OnInit {
 	villeA : string;
 	dateT : Date;
 	nbPlace : string;
-	cpt : int = 0;
+	cpt : number = 0;
 
 	constructor() { }
 

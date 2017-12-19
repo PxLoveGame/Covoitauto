@@ -10,7 +10,7 @@ export class TripsSearchComponent implements OnInit {
 	villeD : string;
 	villeA : string;
 	dateT : Date;
-	cpt : int = 0;
+	cpt : number = 0;
 
 	correspondTrips : Object[] = [];
 
@@ -30,8 +30,8 @@ export class TripsSearchComponent implements OnInit {
 
 	searchTrips(){
   		for(var i = 0; i< this.trips.length; i++){
-			if(this.trips[i]['startCity'] === villeA && this.trips[i]['endCity'] === villeD && this.trips[i]['date'] === dateT && this.trips[i]['place']>0){
-				correspondTrips[i] = '{"startCity":' +'"this.villeA", "endCity":' +'"this.villeD", "date":' + '"this.dateT", "place":' + '"this.trips[i]['place']"}';
+			if(this.trips[i]['startCity'] === this.villeA && this.trips[i]['endCity'] === this.villeD && this.trips[i]['date'] === this.dateT && this.trips[i]['place']>0){
+				this.correspondTrips[i] = '{"startCity":' +'"this.villeA", "endCity":' +'"this.villeD", "date":' + '"this.dateT", "place":' + '"this.trips[i][place]"}';
 				this.cpt++;
 			}
 		}

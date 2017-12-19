@@ -1,23 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
-<ul>
-  <li>
-    <h1><a href ="" >Consulter les trajets </a></h1>
-  </li>
-  <li>
-    <h1><a href="" >Créer un trajet</a></h1>
-  </li>
-  <li>
+<div id="header">
+<img src="logo.png" alt="logo">
+<div class="trajet">
+   <!-- <button [routerLink]="['/search']">Consulter les trajets </button> -->
+    <button [routerLink]="['/create']">Créer un trajet</button>
+</div>
+<div class="connexion">
     <button [routerLink]="['/login']">Connexion</button>
     <button [routerLink]="['/register']">S'inscrire</button>
-  </li> 
-</ul>
- <h1>Bienvenue sur Covoitauto!</h1>
+</div>
+<h1>Bienvenue sur Covoitauto!</h1>
+<div class="search">
+    <h3>En voiture! choisissez votre trajet : </h3>
+    <app-trips-search></app-trips-search>   
+</div>
 
   <router-outlet></router-outlet> 
 </div>
-
-<app-trips-display></app-trips-display>
-<app-trips-search></app-trips-search>
-
 
