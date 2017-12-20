@@ -1,0 +1,35 @@
+
+form{
+	width: 25%;
+    margin-top: 10%;
+    float: right;
+    border: none;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+form input{
+    float: right;
+
+}
+
+.form-group{
+    margin-top: 2%;
+}
+
+button {
+    background-color: #e54d42;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    float: right;
+}
